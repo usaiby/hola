@@ -98,7 +98,7 @@ class Program
                 { "Authorization", $"Bearer {token}" },
                 { "Accept", "application/json" },
             },
-            Content = new StringContent("{\n  \"queryId\": \"#chew_test_parametro\",\n  \"parameters\": {\n    \"device_name\": \"GT09876X470591P\"  }\n}")
+            Content = new StringContent("{\n  \"queryId\": \"#chew_test_parametro\",\n  \"parameters\": {\n    \"equipo\": \"GT09876X470591P\"  }\n}")
             {
                 Headers =
                 {

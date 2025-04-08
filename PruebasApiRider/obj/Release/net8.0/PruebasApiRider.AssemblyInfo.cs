@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PruebasApiRider")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+294855af875a19fdb3502bcdd870ccf72705e676")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f8ab0df4d2b20bcf2738d30e14ad17a360f20032")]
 [assembly: System.Reflection.AssemblyProductAttribute("PruebasApiRider")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PruebasApiRider")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
