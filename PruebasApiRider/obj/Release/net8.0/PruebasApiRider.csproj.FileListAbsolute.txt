@@ -12,3 +12,4 @@ F:\DESARROLLOS\CHEW\PruebasApiRider\PruebasApiRider\obj\Release\net8.0\refint\Pr
 F:\DESARROLLOS\CHEW\PruebasApiRider\PruebasApiRider\obj\Release\net8.0\PruebasApiRider.pdb
 F:\DESARROLLOS\CHEW\PruebasApiRider\PruebasApiRider\obj\Release\net8.0\PruebasApiRider.genruntimeconfig.cache
 F:\DESARROLLOS\CHEW\PruebasApiRider\PruebasApiRider\obj\Release\net8.0\ref\PruebasApiRider.dll
+F:\DESARROLLOS\CHEW\PruebasApiRider\PruebasApiRider\obj\Release\net8.0\PruebasApiRider.sourcelink.json

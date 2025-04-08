@@ -42,6 +42,9 @@ class Program
                     string token = tokenElement.GetString();
                     Console.WriteLine($"\n✅ Token obtenido: {token}");
                     await QueryDevicesAsync(token);
+                    
+                    Console.WriteLine("\t\n\t\n\t\n\t\n");
+                    await QueryDevicesAsyncConVariable(token);
                 }
                 else
                 {
@@ -117,6 +120,43 @@ class Program
             Console.WriteLine($"Status code: {response.StatusCode}");
             Console.WriteLine("Respuesta:");
             Console.WriteLine(responseString);
+        
+    }
+    
+    public static async Task QueryDevicesAsyncConVariable(string token)
+    {
+        var url = "https://santander-es.api.eu.nexthink.cloud/api/v1/nql/execute";
+
+
+        // Construimos el objeto JSON del cuerpo
+        var bodyObject = new
+        {
+            queryId = "#chew_test_parametro",
+            parameters = new
+            {
+                device_name = "GT09876X470591P"
+            }
+        };
+
+        var jsonBody = JsonSerializer.Serialize ( bodyObject );
+        var content = new StringContent ( jsonBody, Encoding.UTF8, "application/json" );
+
+        
+        // Cabeceras
+        client2.DefaultRequestHeaders.Accept.Clear ();
+        client2.DefaultRequestHeaders.Accept.Add ( new MediaTypeWithQualityHeaderValue("application/json") );
+        client2.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("text/csv"));
+        client2.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+        Console.WriteLine( client2.DefaultRequestHeaders);
+
+        // Petición POST
+        var response = await client2.PostAsync(url, content);
+
+        var responseString = await response.Content.ReadAsStringAsync();
+
+        Console.WriteLine($"Status code: {response.StatusCode}");
+        Console.WriteLine("Respuesta:");
+        Console.WriteLine(responseString);
         
     }
     
