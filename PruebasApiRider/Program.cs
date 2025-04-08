@@ -85,122 +85,34 @@ class Program
     }
 
 
-    public static async Task QueryDevicesAsync1(string token)
-    {
-        var url = "https://santander-es.api.eu.nexthink.cloud/api/v1/nql/execute";
-
-
-        // Construimos el objeto JSON del cuerpo
-        var bodyObject = new
-        {
-            queryId = "#chew_test_query"/*,
-            parameters = new
-            {
-               parameterName1 = "parameterValue1",
-                parameterName2 = "parameterValue2"
-            }*/
-        };
-
-        var jsonBody = JsonSerializer.Serialize ( bodyObject );
-        var content = new StringContent ( jsonBody, Encoding.UTF8, "application/json" );
-
-        
-            // Cabeceras
-            client2.DefaultRequestHeaders.Accept.Clear ();
-            client2.DefaultRequestHeaders.Accept.Add ( new MediaTypeWithQualityHeaderValue("application/json") );
-            client2.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("text/csv"));
-            client2.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            Console.WriteLine( client2.DefaultRequestHeaders);
-
-            // Petición POST
-            var response = await client2.PostAsync(url, content);
-
-            var responseString = await response.Content.ReadAsStringAsync();
-
-            Console.WriteLine($"Status code: {response.StatusCode}");
-            Console.WriteLine("Respuesta:");
-            Console.WriteLine(responseString);
-        
-    }
-    
+   
     public static async Task QueryDevicesAsyncConVariable(string token)
     {
-        var url = "https://santander-es.api.eu.nexthink.cloud/api/v1/nql/execute";
-
-
-        // Construimos el objeto JSON del cuerpo
-        var bodyObject = new
+        var client = new HttpClient();
+        var request = new HttpRequestMessage
         {
-            queryId = "#chew_test_parametro",
-            parameters = new
+            Method = HttpMethod.Post,
+            RequestUri = new Uri("https://santander-es.api.eu.nexthink.cloud/api/v1/nql/execute"),
+            Headers =
             {
-                device_name = "GT09876X470591P"
+                { "Authorization", $"Bearer {token}" },
+                { "Accept", "application/json" },
+            },
+            Content = new StringContent("{\n  \"queryId\": \"#chew_test_parametros\",\n  \"parameters\": {\n    \"device_name\": \"GT09876X470591P\"  }\n}")
+            {
+                Headers =
+                {
+                    ContentType = new MediaTypeHeaderValue ( "application/json" )
+                }
             }
         };
-
-        var jsonBody = JsonSerializer.Serialize ( bodyObject );
-        var content = new StringContent ( jsonBody, Encoding.UTF8, "application/json" );
-
-        
-        // Cabeceras
-        client2.DefaultRequestHeaders.Accept.Clear ();
-        client2.DefaultRequestHeaders.Accept.Add ( new MediaTypeWithQualityHeaderValue("application/json") );
-        client2.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("text/csv"));
-        client2.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-        Console.WriteLine( client2.DefaultRequestHeaders);
-
-        // Petición POST
-        var response = await client2.PostAsync(url, content);
-
-        var responseString = await response.Content.ReadAsStringAsync();
-
-        Console.WriteLine($"Status code: {response.StatusCode}");
-        Console.WriteLine("Respuesta:");
-        Console.WriteLine(responseString);
+        using (var response = await client.SendAsync(request))
+        {
+            //response.EnsureSuccessStatusCode();
+            var body = await response.Content.ReadAsStringAsync();
+            Console.WriteLine(body);
+        }
         
     }
-    
-    public static async Task QueryDevicesAsync2(string token)
-    {
-
-        var url = "https://santander-es.api.eu.nexthink.cloud/api/v1/nql/execute";
-
-        // JSON del cuerpo de la consulta
-        
-        var queryObject = new
-        {
-            queryId = "#chew_test_query",
-            parameters = new
-            {
-                devicen = "fasdfaksd",
-                usuario = "jdoe",
-                fecha = "2025-04-07"
-            }
-        };
-        
-        var jsonBody = JsonSerializer.Serialize(queryObject);
-        Console.WriteLine(jsonBody);
-        var content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
-
-        // Encabezados de autorización
-        client2.DefaultRequestHeaders.Clear();
-        client2.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-        Console.WriteLine("---");
-        Console.WriteLine(client2.DefaultRequestHeaders.Authorization);
-        Console.WriteLine("---");
-        try
-        {
-            var response = await client2.PostAsync(url, content);
-           // response.EnsureSuccessStatusCode();
-
-            var responseBody = await response.Content.ReadAsStringAsync();
-
-            Console.WriteLine("✅ Respuesta de la consulta:");
-            Console.WriteLine(responseBody);
-        }
-        catch (HttpRequestException ex)
-        {
-            Console.WriteLine($"❌ Error en la solicitud: {ex.Message}" + ex.StackTrace + ex.HttpRequestError);
-        }
-    }
+   
 }
