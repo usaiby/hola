@@ -1,0 +1,14 @@
+F:\DESARROLLOS\CHEW\PruebasApiRider\PruebasApiRider\bin\Release\net8.0\PruebasApiRider.exe
+F:\DESARROLLOS\CHEW\PruebasApiRider\PruebasApiRider\bin\Release\net8.0\PruebasApiRider.deps.json
+F:\DESARROLLOS\CHEW\PruebasApiRider\PruebasApiRider\bin\Release\net8.0\PruebasApiRider.runtimeconfig.json
+F:\DESARROLLOS\CHEW\PruebasApiRider\PruebasApiRider\bin\Release\net8.0\PruebasApiRider.dll
+F:\DESARROLLOS\CHEW\PruebasApiRider\PruebasApiRider\bin\Release\net8.0\PruebasApiRider.pdb
+F:\DESARROLLOS\CHEW\PruebasApiRider\PruebasApiRider\obj\Release\net8.0\PruebasApiRider.GeneratedMSBuildEditorConfig.editorconfig
+F:\DESARROLLOS\CHEW\PruebasApiRider\PruebasApiRider\obj\Release\net8.0\PruebasApiRider.AssemblyInfoInputs.cache
+F:\DESARROLLOS\CHEW\PruebasApiRider\PruebasApiRider\obj\Release\net8.0\PruebasApiRider.AssemblyInfo.cs
+F:\DESARROLLOS\CHEW\PruebasApiRider\PruebasApiRider\obj\Release\net8.0\PruebasApiRider.csproj.CoreCompileInputs.cache
+F:\DESARROLLOS\CHEW\PruebasApiRider\PruebasApiRider\obj\Release\net8.0\PruebasApiRider.dll
+F:\DESARROLLOS\CHEW\PruebasApiRider\PruebasApiRider\obj\Release\net8.0\refint\PruebasApiRider.dll
+F:\DESARROLLOS\CHEW\PruebasApiRider\PruebasApiRider\obj\Release\net8.0\PruebasApiRider.pdb
+F:\DESARROLLOS\CHEW\PruebasApiRider\PruebasApiRider\obj\Release\net8.0\PruebasApiRider.genruntimeconfig.cache
+F:\DESARROLLOS\CHEW\PruebasApiRider\PruebasApiRider\obj\Release\net8.0\ref\PruebasApiRider.dll
